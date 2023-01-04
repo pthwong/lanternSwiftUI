@@ -2,7 +2,7 @@
     {
         "id": 1001,
         "name": "OP Mall",
-        "address": "\"100 Tai Ho Rd, Tsuen Wan\"",
+        "address": "100 Tai Ho Rd, Tsuen Wan",
         "coordinate": {
             "latitude": 22.368071,
             "longitude": -114.1083071
@@ -14,7 +14,7 @@
     {
         "id": 1002,
         "name": "Langham Place",
-        "address": "\"8 Argyle St, Mong Kok\"",
+        "address": "8 Argyle St, Mong Kok",
         "coordinate": {
             "latitude": 22.3179371,
             "longitude": -114.1660045
