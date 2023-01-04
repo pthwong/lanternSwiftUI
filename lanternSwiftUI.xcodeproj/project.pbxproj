@@ -21,6 +21,7 @@
 		70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417929653E0B00C29B30 /* EnquiryView.swift */; };
 		70A0417C29653FA200C29B30 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417B29653FA200C29B30 /* LocationModel.swift */; };
 		70A0417E296542B100C29B30 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417D296542B100C29B30 /* LocationListView.swift */; };
+		70A041802965610B00C29B30 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417F2965610B00C29B30 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		70A0417929653E0B00C29B30 /* EnquiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryView.swift; sourceTree = "<group>"; };
 		70A0417B29653FA200C29B30 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		70A0417D296542B100C29B30 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		70A0417F2965610B00C29B30 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				70A0417929653E0B00C29B30 /* EnquiryView.swift */,
 				70A0416E2965367C00C29B30 /* BookmarkView.swift */,
 				70A0417D296542B100C29B30 /* LocationListView.swift */,
+				70A0417F2965610B00C29B30 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				70A041432965346B00C29B30 /* lanternSwiftUIApp.swift in Sources */,
 				70A04174296539B200C29B30 /* AnnotatedItem.swift in Sources */,
 				70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */,
+				70A041802965610B00C29B30 /* MapView.swift in Sources */,
 				70A0417829653D6200C29B30 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +484,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,6 +517,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
