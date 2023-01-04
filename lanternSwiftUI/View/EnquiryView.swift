@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  EnquiryView.swift
 //  lanternSwiftUI
 //
 //  Created by WONG TSZ HIM on 4/1/2023.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct MapView: View {
+struct EnquiryView: View {
     var body: some View {
-        Text("This is Map View.")
+        LocationListView()
     }
 }
 
-struct MapView_Previews: PreviewProvider {
+struct EnquiryView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        EnquiryView()
     }
 }

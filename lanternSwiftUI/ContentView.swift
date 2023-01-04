@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            MapView().tabItem({
+            EnquiryView().tabItem({
                 Image(systemName: "house.fill")
             })
             BookmarkView().tabItem({

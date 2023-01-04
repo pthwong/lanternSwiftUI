@@ -8,10 +8,14 @@
 import MapKit
 import Foundation
 
-struct AnnoatedItem : Identifiable {
-    let id = UUID()
+struct AnnotatedItem : Identifiable, Decodable {
+    var id: Int
     let name : String
     var description: String
+    var address: String
+    var location: String
+    var district: String
+    
     //var coordinates : CLLocationCoordinate2D
     
     var coordinate : Coordinate
