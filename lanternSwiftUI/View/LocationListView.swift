@@ -12,11 +12,10 @@ struct LocationListView: View {
     var body: some View {
         NavigationView {
             List(lanternLocation) { location in
-                NavigationLink(destination: LocationInfoView()) {
+                NavigationLink(destination: LocationInfoView(locations: location)) {
                     VStack(alignment: .leading) {
                         Text(location.name).font(.title3).bold()
                         Text(location.address).opacity(0.6)
-                        Text(location.description).font(.caption)
                     }
                 }
             }
