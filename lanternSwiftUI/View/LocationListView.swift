@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct LocationListView: View {
+    
     var body: some View {
         List(lanternLocation) { location in
             VStack(alignment: .leading) {
                     Text(location.name).font(.title3).bold()
                     Text(location.address).opacity(0.6)
                     Text(location.description).font(.caption)
-                }
+            }
         }
     }
 }
