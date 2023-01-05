@@ -12,7 +12,7 @@ import MapKit
 class LocationManager: NSObject, ObservableObject {
     
     let locationManager = CLLocationManager()
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
 //    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
     
     override init() {
@@ -37,12 +37,12 @@ extension LocationManager: CLLocationManagerDelegate {
             case .denied:
                 print("Your have denied app to access location services.")
             case .authorizedAlways, .authorizedWhenInUse:
-                guard let location = locationManager.location else { return }
-            region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+                guard let locations = locationManager.location else { return }
+            region = MKCoordinateRegion(center: locations.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
             @unknown default:
                 break
         }
-        print(region)
+        print("Region:\n \(region)")
         
     }
     
