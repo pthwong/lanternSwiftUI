@@ -11,7 +11,7 @@ import SwiftUI
 struct lanternSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(LocationSearchModel())
+            ContentView()
         }
     }
 }

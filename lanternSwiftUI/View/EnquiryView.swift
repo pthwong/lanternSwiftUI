@@ -9,9 +9,9 @@ import SwiftUI
 import MapKit
 
 struct EnquiryView: View {
-    @State var isSheetPresented = false
+    @State private var isSheetPresented = false
     
-    @EnvironmentObject var locationSearchModel: LocationSearchModel
+    @State var locationManager = LocationManager()
     
     var body: some View {
         
@@ -21,11 +21,41 @@ struct EnquiryView: View {
                 isSheetPresented.toggle()
             }
 
-            Map(coordinateRegion: $locationSearchModel.region, showsUserLocation: true, annotationItems: locationSearchModel.landmarks) { landmark in
+            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: lanternLocation) { locations in
                 
-                MapAnnotation(coordinate: landmark.locationCoordinate) {
-                    Image(systemName: "heart.fill")
-                }
+//                MapMarker(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
+                
+                MapAnnotation(coordinate:
+                                CLLocationCoordinate2D(
+                                    latitude: locations.latitude,
+                                    longitude: locations.longitude
+                                )) {
+                                    VStack {
+                                        Text(locations.name)
+                                          .font(.callout)
+                                          .padding(5)
+                                          .background(Color(.white))
+                                          .cornerRadius(10)
+                        
+                                        Image(systemName: "mappin.circle.fill")
+                                          .font(.title)
+                                          .foregroundColor(.red)
+                                        
+                                        Image(systemName: "arrowtriangle.down.fill")
+                                          .font(.caption)
+                                          .foregroundColor(.red)
+                                          .offset(x: 0, y: -5)
+                                      }
+                                    
+//                                      Text(location.name)
+//                                        .font(.caption2)
+//                                        .bold()
+//                                      Image(systemName: "star.fill")
+//                                        .font(.title2)
+//                                        .foregroundColor(.red)
+//                                        .shadow(radius: 1)
+//                                    }
+                                }
                 
             }
             
@@ -86,6 +116,6 @@ struct EnquiryView: View {
 
 struct EnquiryView_Previews: PreviewProvider {
     static var previews: some View {
-        EnquiryView().environmentObject(LocationSearchModel())
+        EnquiryView()
     }
 }
