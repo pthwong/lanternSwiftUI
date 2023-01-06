@@ -15,7 +15,7 @@ struct AnnotatedItem : Decodable, Identifiable {
     var description: String
     var district: String
     var website: String
-    var telephone: Int
+    var telephone: String
     var email: String
     var latitude: Double
     var longitude: Double
