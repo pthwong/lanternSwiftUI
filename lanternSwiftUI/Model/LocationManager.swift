@@ -42,7 +42,7 @@ extension LocationManager: CLLocationManagerDelegate {
             case .authorizedAlways, .authorizedWhenInUse:
                 guard let location = locationManager.location else { return }
             print("Location: \n\(location.coordinate)")
-            region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+            region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
             @unknown default:
                 print("error getting location")
         }
@@ -53,7 +53,7 @@ extension LocationManager: CLLocationManagerDelegate {
         DispatchQueue.main.async {
             self.lastLocation = locations.last
             if let lastLocation = self.lastLocation {
-                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
             }
         }
         
