@@ -21,8 +21,10 @@ struct EnquiryView: View {
         
         VStack {
             
-            Button("Show Places' name") {
-                 isSheetPresented.toggle()
+            Button(action: {
+                isSheetPresented.toggle()
+            }) {
+                Image(systemName: "list.bullet").font(.largeTitle).padding()
             }
 
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: lanternLocation) { locations in

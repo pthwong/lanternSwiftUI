@@ -12,47 +12,74 @@ import MapKit
 struct LocationInfoView: View {
     var locations: AnnotatedItem
     
+    @State private var isShareSheetDisplay = false
+    
     
     var body: some View {
+        let url = URL(string: locations.website)!
+        let message = "\n\nHere are the information of Paper Lantern Shop:\nName: \(locations.name) \nAddress: \(locations.address) \nPhone: \(locations.telephone) \nEmail: \(locations.email)\n \nCheck it out!"
+        
         ScrollView {
             VStack(alignment: .leading) {
                 Text(locations.name)
                     .font(.title)
                     .bold()
                     .padding()
-                
-//                HStack {
-//                    Text(locations.address)
-//                        .font(.subheadline)
-//                        .foregroundColor(.secondary)
-//
-//                }
+
+                // Button to share / bookmark / website
+
+                HStack {
+                    if #available(iOS 16.0, *) {
+                        ShareLink(item: url, subject: Text("Check It Out!"), message:Text(message)) {
+                            Image(systemName: "square.and.arrow.up")
+                        }.font(.title2).padding()
+
+                    } else {
+                        // Fallback on earlier versions
+                        Button(action: {
+                            isShareSheetDisplay.toggle()
+                            
+                            let text = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                            
+                            UIApplication.shared.windows.first?
+                                .rootViewController?.present(text, animated: true,
+                                                             completion: nil)
+                            
+                        }) {
+                            Image(systemName: "square.and.arrow.up").font(.title2).padding()
+                        }
+                    }
+                    
+                    Button(action: {
+                        Text("Button")
+                    }) {
+                        Image(systemName: "bookmark.fill")
+                    }.font(.title2).padding()
+                    
+                }
                 
                 Divider()
                 
+                // Information
+                
                 HStack {
-                    Text("Address: ")
-                    Spacer()
+                    Image(systemName: "location.fill").font(.title3)
                     Text(locations.address)
                 }.font(.subheadline)
                     .padding()
                 
+                HStack {
+                    Image(systemName: "phone.fill").font(.title3)
+                    Text("\(locations.telephone)")
+                }.font(.subheadline)
+                    .padding()
+                
                 
                 HStack {
-                    Text("Email: ")
-                    Spacer()
+                    Image(systemName: "envelope.fill").font(.title3)
                     Text(locations.email)
                 }.font(.subheadline)
                     .padding()
-        
-                
-                HStack {
-                    Text("Website: ")
-                    Spacer()
-                    Text(locations.website)
-                }.font(.subheadline)
-                    .padding()
-                
                 
                 
                 Divider()
@@ -69,27 +96,6 @@ struct LocationInfoView: View {
                 .navigationTitle(locations.name)
                 .navigationBarTitleDisplayMode(.inline)
         }
-//        VStack(alignment: .leading) {
-//            Text("Name")
-//                .font(.title).bold()
-//
-//            HStack {
-//                Text("Address")
-//                Spacer()
-//                Text("District")
-//            }
-//            .font(.subheadline)
-//            .foregroundColor(.secondary)
-//
-//            Divider()
-//
-//            Text("About name")
-//                .font(.title2)
-//            Text("Descrption")
-//        }.padding()
-//        .navigationTitle("Place")
-//        .navigationBarTitleDisplayMode(.inline)
-        
         
         
     }
