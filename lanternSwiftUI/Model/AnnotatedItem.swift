@@ -13,7 +13,6 @@ struct AnnotatedItem : Decodable, Identifiable {
     let name : String
     var description: String
     var address: String
-    var location: String
     var district: String
     var latitude: Double
     var longitude: Double

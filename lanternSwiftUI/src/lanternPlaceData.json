@@ -1,21 +1,46 @@
 [
     {
         "id": 1001,
+        "name": "Poh Wah Paper Craft",
+        "address": "2D Fuk Wing Street, Sham Shui Po",
+        "description": "寶華紮作 Poh Wah Paper Craft",
+        "district": "Sham Shui Po District",
+        "latitude": 22.32971,
+        "longitude": 114.16590
+    },
+    {
+        "id": 1002,
+        "name": "Tai Cheong Loong Paper Craft",
+        "address": "44 Reclamation Street, Jordon",
+        "description": "大昌隆紙號 Tai Cheong Loong Paper Craft",
+        "district": "Yau Tsim Mong District",
+        "latitude": 22.307256,
+        "longitude": 114.169421
+    },
+    {
+        "id": 1003,
+        "name": "Draw2 Studio",
+        "address": "Flat 5, 10/F, Kowloon Bay Industrial Centre, 15 Wang Hoi Road, Kowloon Bay",
+        "description": "卡通紙紮燈籠",
+        "district": "Kwun Tong District",
+        "latitude": 22.322946,
+        "longitude": 114.210710
+    },
+    {
+        "id": 1004,
         "name": "OP Mall",
         "address": "100 Tai Ho Rd, Tsuen Wan",
         "description": "This is the place 1",
         "district": "Tsuen Wan District",
-        "location": "Tsuen Wan",
         "latitude": 22.368320,
         "longitude": 114.109805
     },
     {
-        "id": 1002,
+        "id": 1005,
         "name": "Langham Place",
         "address": "8 Argyle St, Mong Kok",
         "description": "This is the place 2",
         "district": "Yau Tsim Mong District",
-        "location": "Mong Kok",
         "latitude": 22.317932,
         "longitude": 114.168624
     }
