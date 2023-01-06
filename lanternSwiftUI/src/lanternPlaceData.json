@@ -4,7 +4,10 @@
         "name": "Poh Wah Paper Craft",
         "address": "2D Fuk Wing Street, Sham Shui Po",
         "description": "寶華紮作 Poh Wah Paper Craft",
-        "district": "Sham Shui Po District",
+        "district": "Sham Shui Po",
+        "website": "https://www.facebook.com/PohWahPaperCraft",
+        "telephone": 27769171,
+        "email": "auyeungpingchi@gmail.com",
         "latitude": 22.32971,
         "longitude": 114.16590
     },
@@ -13,7 +16,10 @@
         "name": "Tai Cheong Loong Paper Craft",
         "address": "44 Reclamation Street, Jordon",
         "description": "大昌隆紙號 Tai Cheong Loong Paper Craft",
-        "district": "Yau Tsim Mong District",
+        "district": "Jordan",
+        "website": "https://www.tcl-hk.com/",
+        "telephone": 27705262,
+        "email": "tsimwk@gmail.com",
         "latitude": 22.307256,
         "longitude": 114.169421
     },
@@ -22,26 +28,11 @@
         "name": "Draw2 Studio",
         "address": "Flat 5, 10/F, Kowloon Bay Industrial Centre, 15 Wang Hoi Road, Kowloon Bay",
         "description": "卡通紙紮燈籠",
-        "district": "Kwun Tong District",
+        "district": "Kowloon Bay",
+        "website": "https://www.facebook.com/draw2.studio",
+        "telephone": 98443395,
+        "email": "info.improduction@gmail.com",
         "latitude": 22.322946,
         "longitude": 114.210710
-    },
-    {
-        "id": 1004,
-        "name": "OP Mall",
-        "address": "100 Tai Ho Rd, Tsuen Wan",
-        "description": "This is the place 1",
-        "district": "Tsuen Wan District",
-        "latitude": 22.368320,
-        "longitude": 114.109805
-    },
-    {
-        "id": 1005,
-        "name": "Langham Place",
-        "address": "8 Argyle St, Mong Kok",
-        "description": "This is the place 2",
-        "district": "Yau Tsim Mong District",
-        "latitude": 22.317932,
-        "longitude": 114.168624
     }
 ]
