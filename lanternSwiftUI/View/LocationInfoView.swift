@@ -17,21 +17,54 @@ struct LocationInfoView: View {
         ScrollView {
             VStack(alignment: .leading) {
                 Text(locations.name)
-                    .font(.title).bold()
+                    .font(.title)
+                    .bold()
+                    .padding()
+                
+//                HStack {
+//                    Text(locations.address)
+//                        .font(.subheadline)
+//                        .foregroundColor(.secondary)
+//
+//                }
+                
+                Divider()
                 
                 HStack {
-                    Text(locations.address)
+                    Text("Address: ")
                     Spacer()
-                    Text(locations.district)
-                }
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+                    Text(locations.address)
+                }.font(.subheadline)
+                    .padding()
+                
+                
+                HStack {
+                    Text("Email: ")
+                    Spacer()
+                    Text(locations.email)
+                }.font(.subheadline)
+                    .padding()
+        
+                
+                HStack {
+                    Text("Website: ")
+                    Spacer()
+                    Text(locations.website)
+                }.font(.subheadline)
+                    .padding()
+                
+                
                 
                 Divider()
                 
                 Text("About \(locations.name)")
-                    .font(.title2).bold()
-                Text(locations.description)
+                    .font(.title2).bold().padding()
+                
+                
+                Text(locations.description).padding()
+                
+                
+                
             }.padding()
                 .navigationTitle(locations.name)
                 .navigationBarTitleDisplayMode(.inline)

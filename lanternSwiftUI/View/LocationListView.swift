@@ -29,12 +29,12 @@ struct LocationListView: View {
             label: {
                 VStack(alignment: .leading) {
                     Text(location.name).font(.title2).bold()
-                    Text(location.address).opacity(0.6)
+                    Text(location.district).opacity(0.8)
                     
-                    if distanceKm >= 20 {
+                    if distanceKm >= 10 {
                         Text("The location is not nearby your location").opacity(0.6).font(.caption)
                     } else {
-                        Text("Distance: \(distanceKm, specifier: "%.1f") km")
+                        Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
                     }
                 }
             }

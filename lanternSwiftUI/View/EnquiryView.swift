@@ -15,12 +15,14 @@ struct EnquiryView: View {
     
     @StateObject private var locationManager = LocationManager()
     
+    @State private var isShow = false
+    
     var body: some View {
         
         VStack {
-            Text("Lat: \(locationManager.region.center.latitude)\n Lon: \(locationManager.region.center.longitude)")
+            
             Button("Show Places' name") {
-                isSheetPresented.toggle()
+                 isSheetPresented.toggle()
             }
 
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: lanternLocation) { locations in
@@ -38,6 +40,15 @@ struct EnquiryView: View {
                                           .padding(5)
                                           .background(Color(.white))
                                           .cornerRadius(10)
+                                    }.onAppear {
+                                        isShow = true
+                                    }
+                                    VStack {
+//                                        Text(locations.name)
+//                                          .font(.callout)
+//                                          .padding(5)
+//                                          .background(Color(.white))
+//                                          .cornerRadius(10)
                         
                                         Image(systemName: "mappin.circle.fill")
                                           .font(.title)
@@ -47,7 +58,9 @@ struct EnquiryView: View {
                                           .font(.caption)
                                           .foregroundColor(.red)
                                           .offset(x: 0, y: -5)
-                                      }
+                                    }.onTapGesture {
+                                        isShow.toggle()
+                                    }
                                     
 //                                      Text(location.name)
 //                                        .font(.caption2)
@@ -59,7 +72,10 @@ struct EnquiryView: View {
 //                                    }
                                 }
                 
-            }
+            }.navigationBarTitle(
+                Text("Lat: \(locationManager.region.center.latitude)\n Lon: \(locationManager.region.center.longitude)"),
+                displayMode: .inline
+            ).edgesIgnoringSafeArea(.all)
             
                 .sheet(isPresented: $isSheetPresented) {
                     if #available(iOS 16.0, *) {
