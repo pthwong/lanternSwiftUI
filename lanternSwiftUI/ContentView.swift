@@ -13,9 +13,9 @@ struct ContentView: View {
             EnquiryView().tabItem({
                 Image(systemName: "house.fill")
             })
-            LocationListView().tabItem({
-                Image(systemName: "map")
-            })
+//            LocationListView().tabItem({
+//                Image(systemName: "map")
+//            })
             BookmarkView().tabItem({
                 Image(systemName: "bookmark")
             })
