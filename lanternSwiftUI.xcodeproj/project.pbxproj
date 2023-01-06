@@ -21,7 +21,7 @@
 		70A0417629653C1C00C29B30 /* lanternPlaceData.json in Resources */ = {isa = PBXBuildFile; fileRef = 70A0417529653C1C00C29B30 /* lanternPlaceData.json */; };
 		70A0417829653D6200C29B30 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417729653D6200C29B30 /* DataModel.swift */; };
 		70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417929653E0B00C29B30 /* EnquiryView.swift */; };
-		70A0417E296542B100C29B30 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417D296542B100C29B30 /* LocationListView.swift */; };
+		70BC5CDE2967B91600DF8A85 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC5CDD2967B91600DF8A85 /* LocationListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,8 @@
 		70A0417529653C1C00C29B30 /* lanternPlaceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lanternPlaceData.json; sourceTree = "<group>"; };
 		70A0417729653D6200C29B30 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		70A0417929653E0B00C29B30 /* EnquiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryView.swift; sourceTree = "<group>"; };
-		70A0417D296542B100C29B30 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		70BC5CDD2967B91600DF8A85 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
+		70BC5CDF2967BD3C00DF8A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 		70A041412965346B00C29B30 /* lanternSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				70BC5CDF2967BD3C00DF8A85 /* Info.plist */,
 				70A04172296538D300C29B30 /* src */,
 				70A04171296538BE00C29B30 /* Model */,
 				70A041702965389600C29B30 /* View */,
@@ -151,8 +153,8 @@
 			children = (
 				70A0417929653E0B00C29B30 /* EnquiryView.swift */,
 				70A0416E2965367C00C29B30 /* BookmarkView.swift */,
-				70A0417D296542B100C29B30 /* LocationListView.swift */,
 				704D9F78296709E8001FB160 /* LocationInfoView.swift */,
+				70BC5CDD2967B91600DF8A85 /* LocationListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,7 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70A0417E296542B100C29B30 /* LocationListView.swift in Sources */,
+				70BC5CDE2967B91600DF8A85 /* LocationListView.swift in Sources */,
 				704D9F7529667D15001FB160 /* LocationManager.swift in Sources */,
 				70A041452965346B00C29B30 /* ContentView.swift in Sources */,
 				70A0416F2965367C00C29B30 /* BookmarkView.swift in Sources */,
@@ -476,11 +478,11 @@
 				DEVELOPMENT_TEAM = 97CN27M6YU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lanternSwiftUI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please access your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please access your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please access your location";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -510,11 +512,11 @@
 				DEVELOPMENT_TEAM = 97CN27M6YU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lanternSwiftUI/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please access your location";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please access your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please access your location";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
