@@ -10,7 +10,7 @@ import CoreLocation
 
 struct LocationListView: View {
     
-    @State private var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {
@@ -20,6 +20,8 @@ struct LocationListView: View {
                 let locationCoor = CLLocation(latitude: location.latitude, longitude: location.longitude)
                 
                 let distance = locationCoor.distance(from: CLLocation(latitude: locationManager.region.center.latitude, longitude: locationManager.region.center.longitude))
+                
+                let distanceKm = distance/1000
 
                 NavigationLink {
                     LocationInfoView(locations: location)
@@ -28,7 +30,12 @@ struct LocationListView: View {
                 VStack(alignment: .leading) {
                     Text(location.name).font(.title2).bold()
                     Text(location.address).opacity(0.6)
-                    Text("Distance: \(distance/1000, specifier: "%.1f") km")
+                    
+                    if distanceKm >= 20 {
+                        Text("The location is not nearby your location").opacity(0.6).font(.caption)
+                    } else {
+                        Text("Distance: \(distanceKm, specifier: "%.1f") km")
+                    }
                 }
             }
                 

@@ -12,9 +12,9 @@ import MapKit
 class LocationManager: NSObject, ObservableObject {
     
     let locationManager = CLLocationManager()
-    //@Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
     @Published var region = MKCoordinateRegion()
-//    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+    
+    @Published var lastLocation : CLLocation?
     
     override init() {
         super.init()
@@ -50,12 +50,13 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        guard let location = locations.last else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+        DispatchQueue.main.async {
+            self.lastLocation = locations.last
+            if let lastLocation = self.lastLocation {
+                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+            }
         }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

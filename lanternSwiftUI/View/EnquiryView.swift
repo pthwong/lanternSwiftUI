@@ -11,17 +11,17 @@ import MapKit
 
 
 struct EnquiryView: View {
-//    @State private var isSheetPresented = false
+    @State private var isSheetPresented = false
     
-    @State var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         
         VStack {
             Text("Lat: \(locationManager.region.center.latitude)\n Lon: \(locationManager.region.center.longitude)")
-//            Button("Show Places' name") {
-//                isSheetPresented.toggle()
-//            }
+            Button("Show Places' name") {
+                isSheetPresented.toggle()
+            }
 
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: lanternLocation) { locations in
                 
@@ -61,14 +61,14 @@ struct EnquiryView: View {
                 
             }
             
-//                .sheet(isPresented: $isSheetPresented) {
-//                    if #available(iOS 16.0, *) {
-//                        LocationListView().presentationDetents([.medium, .large])
-//                    }
-//                    else {
-//                        LocationListView()
-//                    }
-//                }
+                .sheet(isPresented: $isSheetPresented) {
+                    if #available(iOS 16.0, *) {
+                        LocationListView().presentationDetents([.medium, .large])
+                    }
+                    else {
+                        LocationListView()
+                    }
+                }
         
         }
 //        ScrollView {
