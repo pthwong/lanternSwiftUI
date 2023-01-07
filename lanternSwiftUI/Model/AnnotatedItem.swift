@@ -18,7 +18,6 @@ struct AnnotatedItem : Decodable, Identifiable {
     var email: String
     var latitude: Double
     var longitude: Double
-
 }
 
 
