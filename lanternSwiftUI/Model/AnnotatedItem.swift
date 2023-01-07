@@ -5,7 +5,6 @@
 //  Created by WONG TSZ HIM on 4/1/2023.
 //
 
-import MapKit
 import Foundation
 
 struct AnnotatedItem : Decodable, Identifiable {
