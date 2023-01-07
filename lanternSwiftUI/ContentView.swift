@@ -13,6 +13,9 @@ struct ContentView: View {
             LocationListView().tabItem({
                 Image(systemName: "house.fill")
             })
+            LocationListViewFB().tabItem({
+                Image(systemName: "house.fill")
+            })
             MapView().tabItem({
                 Image(systemName: "map")
             })
