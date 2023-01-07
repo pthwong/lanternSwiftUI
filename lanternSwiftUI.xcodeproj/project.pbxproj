@@ -22,6 +22,7 @@
 		70A0417829653D6200C29B30 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417729653D6200C29B30 /* DataModel.swift */; };
 		70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A0417929653E0B00C29B30 /* EnquiryView.swift */; };
 		70BC5CDE2967B91600DF8A85 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BC5CDD2967B91600DF8A85 /* LocationListView.swift */; };
+		70CD0D6029690C6900FC0401 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D5F29690C6900FC0401 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		70A0417929653E0B00C29B30 /* EnquiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryView.swift; sourceTree = "<group>"; };
 		70BC5CDD2967B91600DF8A85 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		70BC5CDF2967BD3C00DF8A85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		70CD0D5F29690C6900FC0401 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				70A0417929653E0B00C29B30 /* EnquiryView.swift */,
+				70CD0D5F29690C6900FC0401 /* MapView.swift */,
 				70A0416E2965367C00C29B30 /* BookmarkView.swift */,
 				704D9F78296709E8001FB160 /* LocationInfoView.swift */,
 				70BC5CDD2967B91600DF8A85 /* LocationListView.swift */,
@@ -315,6 +318,7 @@
 				70A041432965346B00C29B30 /* lanternSwiftUIApp.swift in Sources */,
 				70A04174296539B200C29B30 /* AnnotatedItem.swift in Sources */,
 				704D9F79296709E8001FB160 /* LocationInfoView.swift in Sources */,
+				70CD0D6029690C6900FC0401 /* MapView.swift in Sources */,
 				70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */,
 				70A0417829653D6200C29B30 /* DataModel.swift in Sources */,
 			);
