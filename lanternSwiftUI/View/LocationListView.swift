@@ -26,23 +26,20 @@ struct LocationListView: View {
                 NavigationLink {
                     LocationInfoView(locations: location)
                 }
-            label: {
-                VStack(alignment: .leading) {
-                    Text(location.name).font(.title2).bold()
-                    Text(location.district).opacity(0.8)
-                    
-                    if distanceKm >= 10 {
-                        Text("The location is not nearby your location").opacity(0.6).font(.caption)
-                    } else {
-                        Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
+                label: {
+                    VStack(alignment: .leading) {
+                        Text(location.name).font(.title2).bold()
+                        Text(location.district).opacity(0.8)
+                        
+                        if distanceKm >= 10 {
+                            Text("The location is not nearby your location").opacity(0.6).font(.caption)
+                        } else {
+                            Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
+                        }
                     }
                 }
-            }
                 
-            }
-            
-            
-            
+            }.navigationTitle("Paper Lantern")
         }
     }
 }
