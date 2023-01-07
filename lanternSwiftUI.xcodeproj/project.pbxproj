@@ -32,6 +32,8 @@
 		70CD0D722969207B00FC0401 /* PlaceColFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D712969207B00FC0401 /* PlaceColFB.swift */; };
 		70CD0D74296920BA00FC0401 /* PlacesViewModelFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D73296920BA00FC0401 /* PlacesViewModelFB.swift */; };
 		70CD0D7629692EC200FC0401 /* LocationListViewFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D7529692EC200FC0401 /* LocationListViewFB.swift */; };
+		70CD0D782969518400FC0401 /* MapViewFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D772969518400FC0401 /* MapViewFB.swift */; };
+		70CD0D7A296952FD00FC0401 /* LocationInfoViewFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CD0D79296952FD00FC0401 /* LocationInfoViewFB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		70CD0D712969207B00FC0401 /* PlaceColFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceColFB.swift; sourceTree = "<group>"; };
 		70CD0D73296920BA00FC0401 /* PlacesViewModelFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewModelFB.swift; sourceTree = "<group>"; };
 		70CD0D7529692EC200FC0401 /* LocationListViewFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewFB.swift; sourceTree = "<group>"; };
+		70CD0D772969518400FC0401 /* MapViewFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewFB.swift; sourceTree = "<group>"; };
+		70CD0D79296952FD00FC0401 /* LocationInfoViewFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewFB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +180,10 @@
 			children = (
 				70A0417929653E0B00C29B30 /* EnquiryView.swift */,
 				70CD0D5F29690C6900FC0401 /* MapView.swift */,
+				70CD0D772969518400FC0401 /* MapViewFB.swift */,
 				70A0416E2965367C00C29B30 /* BookmarkView.swift */,
 				704D9F78296709E8001FB160 /* LocationInfoView.swift */,
+				70CD0D79296952FD00FC0401 /* LocationInfoViewFB.swift */,
 				70BC5CDD2967B91600DF8A85 /* LocationListView.swift */,
 				70CD0D7529692EC200FC0401 /* LocationListViewFB.swift */,
 			);
@@ -359,6 +365,8 @@
 				70CD0D7629692EC200FC0401 /* LocationListViewFB.swift in Sources */,
 				70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */,
 				70A0417829653D6200C29B30 /* DataModel.swift in Sources */,
+				70CD0D782969518400FC0401 /* MapViewFB.swift in Sources */,
+				70CD0D7A296952FD00FC0401 /* LocationInfoViewFB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
