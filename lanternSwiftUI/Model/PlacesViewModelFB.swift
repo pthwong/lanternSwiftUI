@@ -40,5 +40,6 @@ class PlacesViewModelFB: ObservableObject {
             
             
         }
+        print(places)
     }
 }

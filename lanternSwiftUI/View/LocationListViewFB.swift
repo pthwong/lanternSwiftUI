@@ -16,41 +16,29 @@ struct LocationListViewFB: View {
     var body: some View {
 
         NavigationView {
-            List(viewModel.places) { location in
+            List(viewModel.places) { place in
                 
-                let locationCoor = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                let placeCoor = CLLocation(latitude: place.latitude, longitude: place.longitude)
                 
-                let distance = locationCoor.distance(from: CLLocation(latitude: locationManager.region.center.latitude, longitude: locationManager.region.center.longitude))
+                let distance = placeCoor.distance(from: CLLocation(latitude: locationManager.region.center.latitude, longitude: locationManager.region.center.longitude))
                 
                 let distanceKm = distance/1000
+     
+                NavigationLink {
+                    LocationInfoViewFB(place: place)
+                }
+                label: {
+                    VStack(alignment: .leading) {
+                        Text(place.name).font(.title2).bold()
+                        Text(place.district).opacity(0.8)
 
-                VStack(alignment: .leading) {
-                    Text(location.name).font(.title2).bold()
-                    Text(location.district).opacity(0.8)
-                    
-                    if distanceKm >= 10 {
-                        Text("The location is not nearby your location").opacity(0.6).font(.caption)
-                    } else {
-                        Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
+                        if distanceKm >= 10 {
+                            Text("The location is not nearby your location").opacity(0.6).font(.caption)
+                        } else {
+                            Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
+                        }
                     }
                 }
-                
-                
-//                NavigationLink {
-//                    LocationInfoView(locations: location)
-//                }
-//                label: {
-//                    VStack(alignment: .leading) {
-//                        Text(location.name).font(.title2).bold()
-//                        Text(location.district).opacity(0.8)
-//
-//                        if distanceKm >= 10 {
-//                            Text("The location is not nearby your location").opacity(0.6).font(.caption)
-//                        } else {
-//                            Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
-//                        }
-//                    }
-//                }
                 
             }.navigationTitle("Paper Lantern")
                 .onAppear(){
