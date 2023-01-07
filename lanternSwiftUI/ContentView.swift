@@ -10,13 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            LocationListView().tabItem({
-                Image(systemName: "house.fill")
-            })
             LocationListViewFB().tabItem({
                 Image(systemName: "house.fill")
             })
-            MapView().tabItem({
+            MapViewFB().tabItem({
                 Image(systemName: "map")
             })
             BookmarkView().tabItem({
