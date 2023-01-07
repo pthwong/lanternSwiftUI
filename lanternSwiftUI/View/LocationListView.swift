@@ -7,10 +7,12 @@
 
 import SwiftUI
 import CoreLocation
+//import FirebaseStorage
 
 struct LocationListView: View {
     
     @StateObject private var locationManager = LocationManager()
+//    @State var retrievedImages = [UIImage]()
     
     var body: some View {
         NavigationView {

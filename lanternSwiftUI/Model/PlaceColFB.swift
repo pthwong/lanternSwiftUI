@@ -19,7 +19,7 @@ struct PlaceColFB : Identifiable {
     var email: String
     var latitude: Double
     var longitude: Double
-    
+    var mainImgPath: String
     
     enum CodingKeys: String, CodingKey {
         case id

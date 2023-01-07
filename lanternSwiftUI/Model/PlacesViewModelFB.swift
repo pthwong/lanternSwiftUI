@@ -6,13 +6,25 @@
 //
 
 import Foundation
-//import Combine
+import Combine
 import FirebaseFirestore
+import FirebaseStorage
+import UIKit
 
 class PlacesViewModelFB: ObservableObject {
     @Published var places = [PlaceColFB]()
     
     private var db = Firestore.firestore()
+    
+//    @State var retrievedMainImgs = [UIImage]()
+    
+    
+    let didChange = PassthroughSubject<Data?, Never>()
+    var data: Data? = nil {
+        didSet { didChange.send(data) }
+    }
+    
+    
     
     func fetchData() {
         db.collection("lanternPlaces").addSnapshotListener { (querySnapshot, error) in
@@ -35,11 +47,28 @@ class PlacesViewModelFB: ObservableObject {
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
                 
-                return PlaceColFB(id: id, name: name, address: address, description: description, district: district, website: website, telephone: telephone, email: email, latitude: latitude, longitude: longitude)
+                // For retrieving Main Images from FB Storage
+                let mainImgPath = data["mainImgPath"] as? String ?? ""
+                let storage = Storage.storage()
+                let ref = storage.reference().child(mainImgPath)
+                ref.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                    if let error = error {
+                        print("\(error)")
+                    }
+                        
+                    DispatchQueue.main.async {
+                        self.data = data
+                    }
+                }
+                
+                
+                return PlaceColFB(id: id, name: name, address: address, description: description, district: district, website: website, telephone: telephone, email: email, latitude: latitude, longitude: longitude, mainImgPath: mainImgPath)
             }
             
             
         }
         print(places)
     }
+    
+    
 }

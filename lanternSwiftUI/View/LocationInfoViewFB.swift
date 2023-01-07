@@ -14,17 +14,29 @@ struct LocationInfoViewFB: View {
     
     @State private var isShareSheetDisplay = false
     
+    let placeholder = UIImage(named: "placeholder.jpg")!
     
+    var image: UIImage? {
+        viewModel.data.flatMap(UIImage.init)
+    }
+
     var body: some View {
         let url = URL(string: place.website)!
         let message = "\n\nHere are the information of Paper Lantern Shop:\nName: \(place.name) \nAddress: \(place.address) \nPhone: \(place.telephone) \nEmail: \(place.email)\n \nCheck it out!"
         
         ScrollView {
             VStack(alignment: .leading) {
-                Text(place.name)
-                    .font(.title)
-                    .bold()
-                    .padding()
+                
+                HStack {
+                    Image(uiImage: image ?? placeholder)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    Text(place.name)
+                        .font(.title)
+                        .bold()
+                        .padding()
+                }
 
                 // Button to share / bookmark / website
 
@@ -103,6 +115,6 @@ struct LocationInfoViewFB: View {
 
 struct LocationInfoViewFB_Previews: PreviewProvider {
     static var previews: some View {
-        LocationInfoViewFB(place: PlaceColFB(id: "1000", name: "Paper Lanterns Places", address: "Flat 5, 10/F, Kam Shing Building, 12 Wang Hoi Road, Kowloon Bay", description: "Paper Lanterns Places", district: "Kowloon Bay", website: "https://web.whatsapp.com", telephone: "98674321", email: "abc@gmail.com", latitude: 22.322946, longitude: 114.21071))
+        LocationInfoViewFB(place: PlaceColFB(id: "1000", name: "Paper Lanterns Places", address: "Flat 5, 10/F, Kam Shing Building, 12 Wang Hoi Road, Kowloon Bay", description: "Paper Lanterns Places", district: "Kowloon Bay", website: "https://web.whatsapp.com", telephone: "98674321", email: "abc@gmail.com", latitude: 22.322946, longitude: 114.21071, mainImgPath: "mainImg/1000.jpg"))
     }
 }
