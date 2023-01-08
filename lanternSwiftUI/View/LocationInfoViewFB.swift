@@ -29,29 +29,113 @@ struct LocationInfoViewFB: View {
         ScrollView {
             VStack(alignment: .leading) {
                 
-                HStack {
-                    Image(uiImage: image ?? placeholder)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .clipped()
+                Group {
+                    HStack {
+                        Image(uiImage: image ?? placeholder)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 60, height: 60)
+                            .clipped()
+                        
+                        Spacer()
+                        
+                        Text(place.name)
+                            .font(.title)
+                            .bold()
+                            .padding()
+                    }
+                }
+                
+                Group {
+                    // Information
                     
-                    Spacer()
+                    HStack {
+                        Image(systemName: "location.fill").font(.title3)
+                        Text(place.address)
+                    }.font(.subheadline)
+                        .padding()
                     
-                    Text(place.name)
-                        .font(.title)
-                        .bold()
+                    HStack {
+                        Image(systemName: "phone.fill").font(.title3)
+                        Text("\(place.telephone)")
+                    }.font(.subheadline)
+                        .padding()
+                    
+                    
+                    HStack {
+                        Image(systemName: "envelope.fill").font(.title3)
+                        Text(place.email)
+                    }.font(.subheadline)
                         .padding()
                 }
+                
 
-                // Button to share / bookmark / website
-
-                HStack {
+                Divider()
+                
+                
+                Group {
+                    Text("About \(place.name)")
+                        .font(.title2).bold().padding()
+                    
+                    
+                    Text(place.description).padding()
+                    
+                }
+                    Divider()
+                
+                Group {
+                    Text("Comments")
+                        .font(.title2).bold().padding()
+                    /*
+                    //Card View of comments
+                    VStack {
+                        Image(uiImage: placeholder ?? placeholder)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200, height: 100)
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Hello World")
+                                    .font(.headline)
+                                    .foregroundColor(.secondary)
+                                Text("Very Good")
+                                    .font(.title3).bold()
+                                    .foregroundColor(.primary)
+                                    .lineLimit(3)
+                                Text("Good Taste")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .layoutPriority(100)
+                            
+                            Spacer()
+                        }
+                        .padding()
+                    }
+                    .shadow(radius: 5)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
+                    
+                    )
+                    .padding([.top, .horizontal])
+                     */
+                    
+                    
+                }
+                
+            }.padding()
+                .navigationTitle(place.name)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing:
+                 HStack {
+                    
                     if #available(iOS 16.0, *) {
                         ShareLink(item: url, subject: Text("Check It Out!"), message:Text(message)) {
                             Image(systemName: "square.and.arrow.up")
-                        }.font(.title2).padding()
-
+                        }
+                        
                     } else {
                         // Fallback on earlier versions
                         Button(action: {
@@ -68,51 +152,15 @@ struct LocationInfoViewFB: View {
                         }
                     }
                     
-                    Button(action: {
-                        Text("Button")
-                    }) {
-                        Image(systemName: "bookmark.fill")
-                    }.font(.title2).padding()
                     
+                    Button(action: {
+                        print("add button")
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                    }
                 }
                 
-                Divider()
-                
-                // Information
-                
-                HStack {
-                    Image(systemName: "location.fill").font(.title3)
-                    Text(place.address)
-                }.font(.subheadline)
-                    .padding()
-                
-                HStack {
-                    Image(systemName: "phone.fill").font(.title3)
-                    Text("\(place.telephone)")
-                }.font(.subheadline)
-                    .padding()
-                
-                
-                HStack {
-                    Image(systemName: "envelope.fill").font(.title3)
-                    Text(place.email)
-                }.font(.subheadline)
-                    .padding()
-                
-                
-                Divider()
-                
-                Text("About \(place.name)")
-                    .font(.title2).bold().padding()
-                
-                
-                Text(place.description).padding()
-                
-                
-                
-            }.padding()
-                .navigationTitle(place.name)
-                .navigationBarTitleDisplayMode(.inline)
+                )
         }
         
         
