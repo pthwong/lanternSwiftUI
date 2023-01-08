@@ -26,7 +26,7 @@ class PlacesViewModelFB: ObservableObject {
     
     
     
-    func fetchData() {
+    func fetchLanternShopInfo() {
         db.collection("lanternPlaces").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")

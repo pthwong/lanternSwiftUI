@@ -76,7 +76,7 @@ struct LocationListViewFB: View {
                 
             }.navigationTitle("Paper Lantern")
                 .onAppear(){
-                    self.viewModel.fetchData()
+                    self.viewModel.fetchLanternShopInfo()
                 }
         }
     }
