@@ -13,10 +13,12 @@ struct MapViewFB: View {
     @ObservedObject var viewModel = PlacesViewModelFB()
     
     @StateObject private var locationManager = LocationManager()
+
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     
     var body: some View {
         
-        Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: viewModel.places) { place in
+        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: viewModel.places) { place in
             
             MapAnnotation(coordinate:
                             CLLocationCoordinate2D(
@@ -45,7 +47,7 @@ struct MapViewFB: View {
                             }
             
         }.onAppear(){
-            self.viewModel.fetchData()
+            self.viewModel.fetchLanternShopInfo()
         }
     }
 }

@@ -5,6 +5,8 @@
 //  Created by WONG TSZ HIM on 5/1/2023.
 //
 
+//Source codes are modified from Lab exercise: LocationEx
+
 import Foundation
 import CoreLocation
 import MapKit
@@ -50,13 +52,14 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        DispatchQueue.main.async {
-            self.lastLocation = locations.last
-            if let lastLocation = self.lastLocation {
-                self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        DispatchQueue.main.async { [weak self] in
+            self?.lastLocation = locations.last
+            
+            if let lastLocation = self?.lastLocation {
+                self?.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lastLocation.coordinate.latitude, longitude: lastLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
             }
         }
-        locationManager.stopUpdatingLocation()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
