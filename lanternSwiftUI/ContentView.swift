@@ -16,9 +16,6 @@ struct ContentView: View {
             MapViewFB().tabItem({
                 Image(systemName: "map")
             })
-            ImageView().tabItem({
-                Image(systemName: "camera")
-            })
             BookmarkView().tabItem({
                 Image(systemName: "bookmark")
             })

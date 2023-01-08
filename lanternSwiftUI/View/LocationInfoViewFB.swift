@@ -14,6 +14,12 @@ struct LocationInfoViewFB: View {
     
     @State private var isShareSheetDisplay = false
     
+    @State private var isPresentedImagePicker = false
+    @State private var isPresentedActionScheet = false
+    @State private var isPresentedCamera = false
+    
+    @State var imageURLList = [String]()
+
     let placeholder = UIImage(named: "placeholder.jpg")!
     
     var image: UIImage? {
@@ -154,10 +160,28 @@ struct LocationInfoViewFB: View {
                     
                     
                     Button(action: {
-                        print("add button")
+//                        print("add button")
+                        self.isPresentedActionScheet = true
                     }) {
                         Image(systemName: "square.and.pencil")
+                    }.onTapGesture {
+                        self.isPresentedActionScheet = true
                     }
+                    .sheet(isPresented: $isPresentedImagePicker) {
+//                        ImagePickerViewModel(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$isPresentedImagePicker)
+                        ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: $imageURLList)
+                    }
+                    .actionSheet(isPresented: $isPresentedActionScheet) { () -> ActionSheet in
+                        ActionSheet(title: Text("Mode?"), message: Text("Please choose either take photo from camera or pick up from photo library"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+                            self.isPresentedImagePicker = true
+                            self.isPresentedCamera = true
+                        }), ActionSheet.Button.default(Text("Photo Library"), action: {
+                            self.isPresentedImagePicker = true
+                            self.isPresentedCamera = false
+                        }), ActionSheet.Button.cancel()])
+                    }
+                    
+                    
                 }
                 
                 )
