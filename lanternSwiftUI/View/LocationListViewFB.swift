@@ -19,6 +19,16 @@ struct LocationListViewFB: View {
     
     let placeholder = UIImage(named: "placeholder.jpg")!
     
+//    var image: UIImage?
+//
+//    ForEach(viewModel.data) {item in
+//
+//        image {
+//            item.flatMap(UIImage.init)
+//        }
+//
+//    }
+//
     var image: UIImage? {
         viewModel.data.flatMap(UIImage.init)
     }
@@ -43,7 +53,9 @@ struct LocationListViewFB: View {
                     HStack {
                         Image(uiImage: image ?? placeholder)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipped()
                         VStack(alignment: .leading) {
                             Text(place.name).font(.title2).bold()
                             Text(place.district).opacity(0.8)

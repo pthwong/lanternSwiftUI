@@ -20,6 +20,8 @@ struct LocationInfoViewFB: View {
         viewModel.data.flatMap(UIImage.init)
     }
 
+//    let image = UIImage(data: data!)
+
     var body: some View {
         let url = URL(string: place.website)!
         let message = "\n\nHere are the information of Paper Lantern Shop:\nName: \(place.name) \nAddress: \(place.address) \nPhone: \(place.telephone) \nEmail: \(place.email)\n \nCheck it out!"
@@ -30,7 +32,11 @@ struct LocationInfoViewFB: View {
                 HStack {
                     Image(uiImage: image ?? placeholder)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                        .clipped()
+                    
+                    Spacer()
                     
                     Text(place.name)
                         .font(.title)

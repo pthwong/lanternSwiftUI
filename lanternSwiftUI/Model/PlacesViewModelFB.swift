@@ -49,15 +49,14 @@ class PlacesViewModelFB: ObservableObject {
                 
                 // For retrieving Main Images from FB Storage
                 let mainImgPath = data["mainImgPath"] as? String ?? ""
+                
                 let storage = Storage.storage()
                 let ref = storage.reference().child(mainImgPath)
                 ref.getData(maxSize: 5 * 1024 * 1024) { data, error in
                     if let error = error {
-                        print("\(error)")
-                    }
-                        
-                    DispatchQueue.main.async {
-                        self.data = data
+                        print("Error occured:\n\(error)")
+                    } else {
+                        self.data = data!
                     }
                 }
                 
