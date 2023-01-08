@@ -154,7 +154,7 @@ struct LocationInfoViewFB: View {
                                                              completion: nil)
                             
                         }) {
-                            Image(systemName: "square.and.arrow.up").font(.title2).padding()
+                            Image(systemName: "square.and.arrow.up")
                         }
                     }
                     
