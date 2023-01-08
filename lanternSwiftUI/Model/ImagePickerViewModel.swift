@@ -6,6 +6,8 @@
 //
 
 //Source code to implement: https://betterprogramming.pub/how-to-pick-an-image-from-camera-or-photo-library-in-swiftui-a596a0a2ece
+//https://github.com/karthironald/SUImagePickerView
+
 
 import SwiftUI
 import UIKit
