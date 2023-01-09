@@ -21,6 +21,7 @@ struct LocationInfoViewFB: View {
     @State var imageURLList = [String]()
 
     let placeholder = UIImage(named: "placeholder.jpg")!
+    let placeholder2 = UIImage(named: "placeholder2.jpg")!
     
     var image: UIImage? {
         viewModel.data.flatMap(UIImage.init)
@@ -37,13 +38,11 @@ struct LocationInfoViewFB: View {
                 
                 Group {
                     HStack {
-                        Image(uiImage: image ?? placeholder)
+                        Image(uiImage: image ?? placeholder2)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 60, height: 60)
+                            .frame(width: 75, height: 75)
                             .clipped()
-                        
-                        Spacer()
                         
                         Text(place.name)
                             .font(.title)
@@ -92,43 +91,6 @@ struct LocationInfoViewFB: View {
                 Group {
                     Text("Comments")
                         .font(.title2).bold().padding()
-                    /*
-                    //Card View of comments
-                    VStack {
-                        Image(uiImage: placeholder ?? placeholder)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 200, height: 100)
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Hello World")
-                                    .font(.headline)
-                                    .foregroundColor(.secondary)
-                                Text("Very Good")
-                                    .font(.title3).bold()
-                                    .foregroundColor(.primary)
-                                    .lineLimit(3)
-                                Text("Good Taste")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                            .layoutPriority(100)
-                            
-                            Spacer()
-                        }
-                        .padding()
-                    }
-                    .shadow(radius: 5)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-                    
-                    )
-                    .padding([.top, .horizontal])
-                     */
-                    
-                    
                 }
                 
             }.padding()
@@ -141,7 +103,7 @@ struct LocationInfoViewFB: View {
                         ShareLink(item: url, subject: Text("Check It Out!"), message:Text(message)) {
                             Image(systemName: "square.and.arrow.up")
                         }
-                        
+                                                                                                                        
                     } else {
                         // Fallback on earlier versions
                         Button(action: {
