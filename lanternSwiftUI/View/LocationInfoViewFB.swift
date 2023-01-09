@@ -13,32 +13,32 @@ struct LocationInfoViewFB: View {
     @ObservedObject var viewModel = PlacesViewModelFB()
     
     @State private var isShareSheetDisplay = false
-    
-    @State private var isPresentedImagePicker = false
-    @State private var isPresentedActionScheet = false
-    @State private var isPresentedCamera = false
+    @State private var isShownPostView = false
     
     @State var imageURLList = [String]()
+//    @State var shopID: String
 
     let placeholder = UIImage(named: "placeholder.jpg")!
     let placeholder2 = UIImage(named: "placeholder2.jpg")!
     
-    var image: UIImage? {
+    var mainImage: UIImage? {
         viewModel.data.flatMap(UIImage.init)
     }
+    
+    @State private var image: Image?
 
 //    let image = UIImage(data: data!)
 
     var body: some View {
         let url = URL(string: place.website)!
         let message = "\n\nHere are the information of Paper Lantern Shop:\nName: \(place.name) \nAddress: \(place.address) \nPhone: \(place.telephone) \nEmail: \(place.email)\n \nCheck it out!"
-        
+
         ScrollView {
             VStack(alignment: .leading) {
                 
                 Group {
                     HStack {
-                        Image(uiImage: image ?? placeholder2)
+                        Image(uiImage: mainImage ?? placeholder2)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 75, height: 75)
@@ -103,7 +103,6 @@ struct LocationInfoViewFB: View {
                         ShareLink(item: url, subject: Text("Check It Out!"), message:Text(message)) {
                             Image(systemName: "square.and.arrow.up")
                         }
-                                                                                                                        
                     } else {
                         // Fallback on earlier versions
                         Button(action: {
@@ -122,25 +121,14 @@ struct LocationInfoViewFB: View {
                     
                     
                     Button(action: {
-//                        print("add button")
-                        self.isPresentedActionScheet = true
+                        self.isShownPostView = true
                     }) {
                         Image(systemName: "square.and.pencil")
                     }.onTapGesture {
-                        self.isPresentedActionScheet = true
+                        self.isShownPostView = true
                     }
-                    .sheet(isPresented: $isPresentedImagePicker) {
-//                        ImagePickerViewModel(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$isPresentedImagePicker)
-                        ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: $imageURLList)
-                    }
-                    .actionSheet(isPresented: $isPresentedActionScheet) { () -> ActionSheet in
-                        ActionSheet(title: Text("Mode?"), message: Text("Please choose either take photo from camera or pick up from photo library"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-                            self.isPresentedImagePicker = true
-                            self.isPresentedCamera = true
-                        }), ActionSheet.Button.default(Text("Photo Library"), action: {
-                            self.isPresentedImagePicker = true
-                            self.isPresentedCamera = false
-                        }), ActionSheet.Button.cancel()])
+                    .sheet(isPresented: $isShownPostView) {
+                        PostCaptionView()
                     }
                     
                     

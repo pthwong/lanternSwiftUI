@@ -15,12 +15,21 @@ struct PostCaptionView: View {
 
     @State var caption: String = ""
     
-    var image: UIImage
+    @State private var image: Image? = Image(systemName: "photo.fill")
     
 //    let placeholder2 = UIImage(named: "placeholder2.jpg")!
     
     @State var textPlaceHolder = "Write a caption here..."
     
+    @State private var isShareSheetDisplay = false
+    @State private var isPresentedImgPickerActionScheet = false
+    @State private var isPresentedImagePicker = false
+    @State private var isPresentedCamera = false
+    @State var imageURLList = [String]()
+    
+    @State private var isPresentedPostActionSheet = false
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -28,10 +37,26 @@ struct PostCaptionView: View {
 
             Form {
                 HStack {
-                    Image(uiImage: image)
+                    image!
                         .resizable()
                         .scaledToFit()
                         .clipped()
+                        .opacity(image == Image(systemName: "photo.fill") ? 0.6 : 1)
+                        .onTapGesture {
+                            self.isPresentedImgPickerActionScheet = true
+                        }
+                        .sheet(isPresented: $isPresentedImagePicker) {
+                            ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: $imageURLList, image: self.$image)
+                        }
+                        .actionSheet(isPresented: $isPresentedImgPickerActionScheet) { () -> ActionSheet in
+                            ActionSheet(title: Text("Mode?"), message: Text("Please choose either take photo from camera or pick up from photo library"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+                                self.isPresentedImagePicker = true
+                                self.isPresentedCamera = true
+                            }), ActionSheet.Button.default(Text("Photo Library"), action: {
+                                self.isPresentedImagePicker = true
+                                self.isPresentedCamera = false
+                            }), ActionSheet.Button.cancel()])
+                        }
                     
                     TextEditor(text: caption.isEmpty ? $textPlaceHolder : $caption)
                         .frame(width: 150, height: 400)
@@ -46,10 +71,16 @@ struct PostCaptionView: View {
                 .navigationBarItems(
                     leading:
                         Button(action: {
-                            print("cancel button")
+                            self.isPresentedPostActionSheet = true
                         }) {
-                            Text("Cancel")
+                            Image(systemName: "xmark").foregroundColor(.red)
                         }
+                        .actionSheet(isPresented: $isPresentedPostActionSheet) { () -> ActionSheet in
+                            ActionSheet(title: Text("Confirm to discard your post?"), message: Text("You have to pick up an image and write a caption again."), buttons: [ActionSheet.Button.default(Text("Discard"), action: {
+                                dismiss()
+                            }), ActionSheet.Button.cancel()])
+                        }
+                        .interactiveDismissDisabled(!isPresentedPostActionSheet)
                     
                     ,trailing:
                     Button(action: {
@@ -69,6 +100,7 @@ struct PostCaptionView: View {
 
 struct PostCaptionView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCaptionView(image: UIImage(named: "placeholder2.jpg")!)
+//        PostCaptionView(image: UIImage(named: "placeholder2.jpg")!)
+        PostCaptionView()
     }
 }
