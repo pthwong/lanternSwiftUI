@@ -14,7 +14,7 @@ struct MapViewFB: View {
     
     @StateObject private var locationManager = LocationManager()
 
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.35, longitudeDelta: 0.35))
     
     var body: some View {
         
