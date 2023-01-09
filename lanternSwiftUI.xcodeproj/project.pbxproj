@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7013E523296AAE2500175C74 /* CommentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7013E522296AAE2500175C74 /* CommentFormView.swift */; };
+		7013E523296AAE2500175C74 /* PostCaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7013E522296AAE2500175C74 /* PostCaptionView.swift */; };
 		704D9F7529667D15001FB160 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D9F7429667D15001FB160 /* LocationManager.swift */; };
 		704D9F79296709E8001FB160 /* LocationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704D9F78296709E8001FB160 /* LocationInfoView.swift */; };
 		70A041432965346B00C29B30 /* lanternSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A041422965346B00C29B30 /* lanternSwiftUIApp.swift */; };
@@ -56,7 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7013E522296AAE2500175C74 /* CommentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentFormView.swift; sourceTree = "<group>"; };
+		7013E522296AAE2500175C74 /* PostCaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCaptionView.swift; sourceTree = "<group>"; };
 		704D9F7429667D15001FB160 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		704D9F78296709E8001FB160 /* LocationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoView.swift; sourceTree = "<group>"; };
 		70A0413F2965346B00C29B30 /* lanternSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lanternSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				70A0417929653E0B00C29B30 /* EnquiryView.swift */,
-				7013E522296AAE2500175C74 /* CommentFormView.swift */,
+				7013E522296AAE2500175C74 /* PostCaptionView.swift */,
 				70CD0D5F29690C6900FC0401 /* MapView.swift */,
 				70CD0D772969518400FC0401 /* MapViewFB.swift */,
 				70A0416E2965367C00C29B30 /* BookmarkView.swift */,
@@ -376,7 +376,7 @@
 				70A04174296539B200C29B30 /* AnnotatedItem.swift in Sources */,
 				704D9F79296709E8001FB160 /* LocationInfoView.swift in Sources */,
 				70ACCEAD296B11E70023E82F /* ImagePickerController.swift in Sources */,
-				7013E523296AAE2500175C74 /* CommentFormView.swift in Sources */,
+				7013E523296AAE2500175C74 /* PostCaptionView.swift in Sources */,
 				70CD0D6029690C6900FC0401 /* MapView.swift in Sources */,
 				70CD0D7629692EC200FC0401 /* LocationListViewFB.swift in Sources */,
 				70A0417A29653E0B00C29B30 /* EnquiryView.swift in Sources */,
