@@ -28,6 +28,7 @@ struct PostCaptionView: View {
     @State var imageURLList = [String]()
     
     @State private var isPresentedPostActionSheet = false
+    @State private var isShowingImgAlert = false
     
     @Environment(\.dismiss) var dismiss
     
@@ -76,7 +77,7 @@ struct PostCaptionView: View {
                             Image(systemName: "xmark").foregroundColor(.red)
                         }
                         .actionSheet(isPresented: $isPresentedPostActionSheet) { () -> ActionSheet in
-                            ActionSheet(title: Text("Confirm to discard your post?"), message: Text("You have to pick up an image and write a caption again."), buttons: [ActionSheet.Button.default(Text("Discard"), action: {
+                            ActionSheet(title: Text("Confirm to discard your post?"), message: Text("You have to choose a photo and write a caption again."), buttons: [ActionSheet.Button.default(Text("Discard"), action: {
                                 dismiss()
                             }), ActionSheet.Button.cancel()])
                         }
@@ -84,10 +85,17 @@ struct PostCaptionView: View {
                     
                     ,trailing:
                     Button(action: {
-                        print("post button")
+                        if image == Image(systemName: "photo.fill"){
+                            isShowingImgAlert = true
+                        } else {
+                            print("post button")
+                        }
                     }) {
-                        Text("Post")
+                        Text("Share")
                     }
+                        .alert(isPresented: $isShowingImgAlert) {
+                            Alert(title: Text("You didn't choose a photo"), message: Text("Please choose a photo from the photo icon first."), dismissButton: .default(Text("OK")))
+                        }
                 )
             
 
