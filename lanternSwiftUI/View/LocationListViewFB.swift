@@ -61,11 +61,10 @@ struct LocationListViewFB: View {
                             Text(place.district).opacity(0.8)
                             
                             if distance >= 10000 {
-                                Text("The location is not nearby your location").opacity(0.6).font(.caption)
-                            } else if distance < 1000 {
-                                Text("Distance: \(distance, specifier: "%.1f") m").opacity(0.8)
+                                Text("The shop is not nearby your location").opacity(0.6).font(.caption)
+                            } else if distance < 200 {
+                                Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8).foregroundColor(.red)
                             } else {
-                                Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
                             }
                         }
                     }
@@ -74,7 +73,8 @@ struct LocationListViewFB: View {
                     
                 }
                 
-            }.navigationTitle("Paper Lantern")
+            }.navigationTitle("Paper Lantern Shop")
+                .navigationBarTitleDisplayMode(.inline)
                 .onAppear(){
                     self.viewModel.fetchLanternShopInfo()
                 }
