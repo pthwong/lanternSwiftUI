@@ -11,9 +11,9 @@ import SwiftUI
 import FirebaseStorage
 import Combine
 
-//Source code to implement:
-//https://github.com/karthironald/SUImagePickerView
-//https://github.com/loydkim/Firebase_Storage_Image_Thread
+///Source code to implement:
+// https://github.com/karthironald/SUImagePickerView
+// https://github.com/loydkim/Firebase_Storage_Image_Thread
 
 struct ImagePickerController: UIViewControllerRepresentable {
     
@@ -49,7 +49,8 @@ struct ImagePickerController: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let image = info[.originalImage] as! UIImage
             parent.imageFileName = makeImageFileName()
-            uploadImageToFireBase(image: image)
+//            NavigationLink(destination: PostCaptionView(image: image))
+            //uploadImageToFireBase(image: image)
         }
         
         func uploadImageToFireBase(image: UIImage) {
@@ -58,7 +59,7 @@ struct ImagePickerController: UIViewControllerRepresentable {
             metadata.contentType = "image/jpeg"
             
             // Upload the file to the path FILE_NAME
-            storage.child(parent.imageFileName).putData(image.jpegData(compressionQuality: 0.42)!, metadata: metadata) { (metadata, error) in
+            storage.child(parent.imageFileName).putData(image.jpegData(compressionQuality: 0.4)!, metadata: metadata) { (metadata, error) in
                 guard let metadata = metadata else {
                   // Uh-oh, an error occurred!
                   print((error?.localizedDescription)!)
