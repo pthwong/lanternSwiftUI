@@ -65,6 +65,7 @@ struct LocationListViewFB: View {
                             } else if distance < 200 {
                                 Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8).foregroundColor(.red)
                             } else {
+                                Text("Distance: \(distanceKm, specifier: "%.1f") km").opacity(0.8)
                             }
                         }
                     }
