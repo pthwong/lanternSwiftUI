@@ -10,14 +10,16 @@
 
 
 import SwiftUI
+import Combine
+import UIKit
 
 struct PostCaptionView: View {
 
+    @Environment(\.dismiss) var dismiss
+    
     @State var caption: String = ""
     
     @State private var image: Image? = Image(systemName: "photo.fill")
-    
-//    let placeholder2 = UIImage(named: "placeholder2.jpg")!
     
     @State var textPlaceHolder = "Write a caption here..."
     
@@ -26,11 +28,15 @@ struct PostCaptionView: View {
     @State private var isPresentedImagePicker = false
     @State private var isPresentedCamera = false
     @State var imageURLList = [String]()
+    @State var shopID: String
     
     @State private var isPresentedPostActionSheet = false
     @State private var isShowingImgAlert = false
+    @State private var isPostedAlert = false
     
-    @Environment(\.dismiss) var dismiss
+    
+    @ObservedObject var viewModel = ImageCaptionAddDataViewModel()
+    
     
     var body: some View {
         
@@ -47,7 +53,10 @@ struct PostCaptionView: View {
                             self.isPresentedImgPickerActionScheet = true
                         }
                         .sheet(isPresented: $isPresentedImagePicker) {
-                            ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: $imageURLList, image: self.$image)
+//                            ImagePickerController(isPresented: self.$isPresentedImagePicker, imageURLList: self.$imageURLList, shopID: self.$shopID, image: self.$image)
+                            
+                            ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: self.$imageURLList, shopID: self.$shopID, image: self.$image)
+ 
                         }
                         .actionSheet(isPresented: $isPresentedImgPickerActionScheet) { () -> ActionSheet in
                             ActionSheet(title: Text("Mode?"), message: Text("Please choose either take photo from camera or pick up from photo library"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
@@ -58,8 +67,7 @@ struct PostCaptionView: View {
                                 self.isPresentedCamera = false
                             }), ActionSheet.Button.cancel()])
                         }
-                    
-                    TextEditor(text: caption.isEmpty ? $textPlaceHolder : $caption)
+                    TextEditor(text: $caption)
                         .frame(width: 150, height: 400)
                         .foregroundColor(.primary)
                         .padding(.horizontal)
@@ -77,7 +85,7 @@ struct PostCaptionView: View {
                             Image(systemName: "xmark").foregroundColor(.red)
                         }
                         .actionSheet(isPresented: $isPresentedPostActionSheet) { () -> ActionSheet in
-                            ActionSheet(title: Text("Confirm to discard your post?"), message: Text("You have to choose a photo and write a caption again."), buttons: [ActionSheet.Button.default(Text("Discard"), action: {
+                            ActionSheet(title: Text("Are you sure discarding your post?"), message: Text("You have to choose a photo and write a caption again."), buttons: [ActionSheet.Button.default(Text("Discard"), action: {
                                 dismiss()
                             }), ActionSheet.Button.cancel()])
                         }
@@ -89,6 +97,10 @@ struct PostCaptionView: View {
                             isShowingImgAlert = true
                         } else {
                             print("post button")
+                            print(String(imageURLList[0]))
+                            viewModel.postTapped(shopID: shopID, imageURL: String(imageURLList[0]), caption: caption)
+                            print("posted already")
+                            dismiss()
                         }
                     }) {
                         Text("Share")
@@ -97,9 +109,8 @@ struct PostCaptionView: View {
                             Alert(title: Text("You didn't choose a photo"), message: Text("Please choose a photo from the photo icon first."), dismissButton: .default(Text("OK")))
                         }
                 )
-            
-
-
+        }.alert(isPresented: $isPostedAlert) {
+            Alert(title: Text("Your post has been shared"), message: Text("Please take a look!"), dismissButton: .default(Text("OK")))
         }
             
         
@@ -108,7 +119,6 @@ struct PostCaptionView: View {
 
 struct PostCaptionView_Previews: PreviewProvider {
     static var previews: some View {
-//        PostCaptionView(image: UIImage(named: "placeholder2.jpg")!)
-        PostCaptionView()
+        PostCaptionView(shopID: "1000")
     }
 }
