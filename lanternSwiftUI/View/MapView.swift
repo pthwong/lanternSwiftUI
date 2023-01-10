@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  MapViewFB.swift
 //  lanternSwiftUI
 //
 //  Created by WONG TSZ HIM on 7/1/2023.
@@ -10,19 +10,23 @@ import MapKit
 
 struct MapView: View {
     
+    @ObservedObject var viewModel = PlacesViewModel()
+    
     @StateObject private var locationManager = LocationManager()
+
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 22.361925, longitude: 114.151315), span: MKCoordinateSpan(latitudeDelta: 0.15, longitudeDelta: 0.15))
     
     var body: some View {
         
-        Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: lanternLocation) { locations in
+        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: viewModel.places) { place in
             
             MapAnnotation(coordinate:
                             CLLocationCoordinate2D(
-                                latitude: locations.latitude,
-                                longitude: locations.longitude
+                                latitude: place.latitude,
+                                longitude: place.longitude
                             )) {
                                 VStack {
-                                    Text(locations.name)
+                                    Text(place.name)
                                       .font(.callout)
                                       .padding(5)
                                       .background(Color(.white))
@@ -42,9 +46,9 @@ struct MapView: View {
                                 
                             }
             
+        }.onAppear(){
+            self.viewModel.fetchLanternShopInfo()
         }
-        
-        
     }
 }
 

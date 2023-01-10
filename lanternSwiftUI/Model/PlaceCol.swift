@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
-struct PlaceColFB : Identifiable {
+struct PlaceCol : Identifiable {
     var id: String
-    let name : String
+    var name: String
     var address: String
     var description: String
     var district: String
@@ -19,7 +18,7 @@ struct PlaceColFB : Identifiable {
     var email: String
     var latitude: Double
     var longitude: Double
-    var mainImgPath: String
+    var mainImgURL: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -32,8 +31,7 @@ struct PlaceColFB : Identifiable {
         case email
         case latitude
         case longtitude
-        
-        
+        case mainImgURL
     }
 
 }
