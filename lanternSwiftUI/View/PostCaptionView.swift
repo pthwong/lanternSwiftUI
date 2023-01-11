@@ -103,7 +103,6 @@ struct PostCaptionView: View {
                     Button(action: {
                         if image == Image(systemName: "square.and.arrow.up.on.square.fill"){
                             isShowingImgAlert = true
-                            isUploadedImage = false
                         } else {
                             print("post button")
                             print(String(imageURLList[0]))
@@ -116,9 +115,6 @@ struct PostCaptionView: View {
                     }
                         .alert(isPresented: $isShowingImgAlert) {
                             Alert(title: Text("You didn't choose a photo"), message: Text("Please choose a photo from the photo icon first."), dismissButton: .default(Text("OK")))
-                        }
-                        .alert(isPresented: $isPostedAlert) {
-                            Alert(title: Text("Your post has been shared"), message: Text("Please take a look!"), dismissButton: .default(Text("OK")))
                         }
                 )
         }
