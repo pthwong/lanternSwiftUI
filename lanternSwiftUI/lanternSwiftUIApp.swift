@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 import FirebaseCore
 
+//Source of the app icon: https://www.flaticon.com/free-icon/lantern_9362571?related_id=9362571
+
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
