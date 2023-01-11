@@ -61,10 +61,6 @@ struct LocationListView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .onAppear(){
                     self.viewModel.fetchLanternShopInfo()
-                    print("Data are appeared.")
-                }
-                .onDisappear(){
-                    print("Data are disappeared.")
                 }
         }
     }
