@@ -5,8 +5,8 @@
 //  Created by WONG TSZ HIM on 8/1/2023.
 //
 
-//Source code: https://betterprogramming.pub/create-a-form-in-swiftui-2-0-3a7f26303fd2
-
+///Source code to help me implement:
+//https://betterprogramming.pub/create-a-form-in-swiftui-2-0-3a7f26303fd2
 
 
 import SwiftUI
@@ -56,10 +56,7 @@ struct PostCaptionView: View {
                                 self.isPresentedImgPickerActionSheet = true
                             }
                             .sheet(isPresented: $isPresentedImagePicker) {
-                                //                            ImagePickerController(isPresented: self.$isPresentedImagePicker, imageURLList: self.$imageURLList, shopID: self.$shopID, image: self.$image)
-                                
                                 ImagePickerController(sourceType: self.isPresentedCamera ? .camera : .photoLibrary, isPresented: self.$isPresentedImagePicker, imageURLList: self.$imageURLList, shopID: self.$shopID, image: self.$image)
-                                
                             }
                             .actionSheet(isPresented: $isPresentedImgPickerActionSheet) { () -> ActionSheet in
                                 ActionSheet(title: Text("Mode?"), message: Text("Please choose either take photo from camera or pick up from photo library"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {

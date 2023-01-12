@@ -5,6 +5,8 @@
 //  Created by WONG TSZ HIM on 7/1/2023.
 //
 
+///Source codes are modified from Lab exercise: LocationEx
+
 import SwiftUI
 import MapKit
 

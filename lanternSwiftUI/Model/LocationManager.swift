@@ -5,7 +5,7 @@
 //  Created by WONG TSZ HIM on 5/1/2023.
 //
 
-//Source codes are modified from Lab exercise: LocationEx
+///Source codes are modified from Lab exercise: LocationEx
 
 import Foundation
 import CoreLocation
@@ -38,9 +38,9 @@ extension LocationManager: CLLocationManagerDelegate {
                 print("nil coor")
                 locationManager.requestWhenInUseAuthorization()
             case .restricted:
-                print("Your location is restricted.")
+                print("restricted location")
             case .denied:
-                print("Your have denied app to access location services.")
+                print("Denied to access location services")
             case .authorizedAlways, .authorizedWhenInUse:
                 guard let location = locationManager.location else { return }
             print("Location: \n\(location.coordinate)")
