@@ -12,7 +12,7 @@ import FirebaseStorage
 import Combine
 import UIKit
 
-///Source code to implement:
+///Source code helps me implementing app:
 // https://github.com/karthironald/SUImagePickerView
 // https://github.com/loydkim/Firebase_Storage_Image_Thread
 
